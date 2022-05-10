@@ -1,25 +1,21 @@
-def str1
-pipeline{
-  agent any
-  tools{
-       maven 'Apache Maven 3.3.9'
-  }
-  stages{
-    stage("creating version of app"){
-      steps{
-        script{
-          str1 = "${ENV.GIT_BRANCH}"---"${ENV.BUILD_NUMBER}"
-          echo "${str1}"
-        }
-      }
+def va_r
+def dockerimg
+pipeline {
+	
+   agent any
+    tools{
+     maven 'Apache Maven 3.3.9'
     }
-    stage("Build Using Maven"){
-      steps{
-        script{
-          sh "mvn clean package"
-        }
-      }
+   
+   
+ stages{
+  stage("Version"){
+   steps{
+    script{
+         va_r  = "${env.GIT_BRANCH}-${env.BUILD_NUMBER}"
+         echo "${va_r}"
     }
+   }
   }
-  
+ }
 }
