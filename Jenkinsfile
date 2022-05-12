@@ -1,6 +1,6 @@
 def str
 pipeline {
-	tool{
+	tools{
 		maven 'Apache Maven 3.6.0'
           }
    agent any
