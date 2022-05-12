@@ -21,6 +21,30 @@ pipeline {
 	         sh "mvn clean package"	 
         }
       }
-   }	
+   }
+   stage("Junit Publish Test"){
+      steps{
+        script{
+          junit allowEmptyResults: true, skipPublishingChecks: true, testDataPublishers: [[$class: 'AttachmentPublisher']],
+               testResults: '**/target/surefire-reports/TEST-*.xml'
+        }
+      }
+    }
+    stage("publishCode Coverage"){
+      steps{
+        script{
+          publishCoverage adapters: [jacocoAdapter('**/target/site/jacoco/jacoco*.xml')], sourceFileResolver: sourceFiles('NEVER_STORE')
+          
+        }
+      }
+    }
+    
+    stage('Local artifact archive') {
+      steps {
+        script{
+        archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+      }
+    }
+    }   
 }
 }
