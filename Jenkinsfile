@@ -1,4 +1,4 @@
-def va_r
+def str
 pipeline {
 	
    agent any
@@ -6,8 +6,8 @@ pipeline {
      stage("Version"){
       steps{
         script{
-          va_r  = "${env.GIT_BRANCH}-${env.BUILD_NUMBER}"
-          echo "${va_r}"
+          str  = "${env.GIT_BRANCH}-${env.BUILD_NUMBER}"
+          echo "${str}"
            }
         }
      }
