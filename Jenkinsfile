@@ -1,7 +1,10 @@
 def str
 pipeline {
-	
+	tool{
+		Apache Maven 3.6.0
+          }
    agent any
+	
    stages{
      stage("Version"){
       steps{
