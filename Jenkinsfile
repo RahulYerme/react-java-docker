@@ -52,7 +52,7 @@ pipeline {
       }
     }
     }  
-	 stage("Nexus Repository Upload" ){
+	/* stage("Nexus Repository Upload" ){
       steps{
         script{
 	input message: 'Enter Username And Password To Continue.', 
@@ -70,7 +70,7 @@ pipeline {
                                             version: '1.0.2-SNAPSHOT'
         }
       }
-    }   
+    }   */
     stage('build docker image') {
       steps {
         script {
