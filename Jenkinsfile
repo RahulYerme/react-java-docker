@@ -1,5 +1,10 @@
 def str
 pipeline {
+	environment {
+    registry = "rahulyerme1234/reactapp"
+    registryCredential = 'dockerhub'
+    dockerImage = ''
+  }
 	tools{
 		maven 'Apache Maven 3.6.0'
           }
@@ -65,5 +70,23 @@ pipeline {
         }
       }
     }   
+    stage('Building our image') {
+     steps{
+      script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+    }
+  }
+ }
+    stage('push docker image') {
+      steps {
+		script {
+			withDockerRegistry(credentialsId: 'dockerhub') {
+			  dockerImage.push("${env.BUILD_NUMBER}")
+			 dockerImage.push("latest")
+			}
+		  }
+        
+      }
+    }
 }
 }
