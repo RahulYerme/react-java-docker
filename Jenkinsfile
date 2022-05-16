@@ -51,11 +51,11 @@ pipeline {
         script{
 	input message: 'Enter Username And Password To Continue.', 
 	parameters: [credentials(credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', 
-	defaultValue: 'newnexus', name: '', required: false)]
+	defaultValue: 'nexuscredentials', name: '', required: false)]
          nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', 
                                             file: 'target/users-1.0.2-SNAPSHOT.jar',
                                             type: 'jar']], 
-                                            credentialsId: 'newnexus', 
+                                            credentialsId: 'nexuscredentials', 
                                             groupId: 'com.bbtutorials', 
                                             nexusUrl: '192.168.33.10:8081', 
                                             nexusVersion: 'nexus3', 
