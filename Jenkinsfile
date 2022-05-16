@@ -53,7 +53,7 @@ pipeline {
 	parameters: [credentials(credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', 
 	defaultValue: 'newnexus', name: '', required: false)]
          nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', 
-                                            file: 'target/users-1.0.1-SNAPSHOT.jar',
+                                            file: 'target/users-1.0.2-SNAPSHOT.jar',
                                             type: 'jar']], 
                                             credentialsId: 'newnexus', 
                                             groupId: 'com.bbtutorials', 
@@ -61,7 +61,7 @@ pipeline {
                                             nexusVersion: 'nexus3', 
                                             protocol: 'http', 
                                             repository: 'reactapp',
-                                            version: '1.0.1-SNAPSHOT'
+                                            version: '1.0.2-SNAPSHOT'
         }
       }
     }   
