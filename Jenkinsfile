@@ -45,6 +45,25 @@ pipeline {
         archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
       }
     }
+    }  
+	 stage("Nexus Repository Upload" ){
+      steps{
+        script{
+	input message: 'Enter Username And Password To Continue.', 
+	parameters: [credentials(credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', 
+	defaultValue: 'newnexus', name: '', required: false)]
+         nexusArtifactUploader artifacts: [[artifactId: 'users', classifier: '', 
+                                            file: 'target/users-1.0.1-SNAPSHOT.jar',
+                                            type: 'jar']], 
+                                            credentialsId: 'newnexus', 
+                                            groupId: 'com.bbtutorials', 
+                                            nexusUrl: '192.168.33.10:8081', 
+                                            nexusVersion: 'nexus3', 
+                                            protocol: 'http', 
+                                            repository: 'reactapp',
+                                            version: '1.0.1-SNAPSHOT'
+        }
+      }
     }   
 }
 }
