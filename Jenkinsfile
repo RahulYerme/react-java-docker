@@ -91,5 +91,15 @@ pipeline {
         
       }
     }
+   stage('build && SonarQube analysis') {
+            steps {
+                withSonarQubeEnv('Sonarqube') {
+                    
+                    withMaven(maven:'Apache Maven 3.6.0') {
+                        sh 'mvn clean package sonar:sonar'
+                    }
+                }
+            }
+    }   
 }
 }
