@@ -71,7 +71,7 @@ pipeline {
         }
       }
     }   */
-    stage('build docker image') {
+   /* stage('build docker image') {
       steps {
         script {
 		  
@@ -90,7 +90,7 @@ pipeline {
 		  }
         
       }
-    }
+    }*/
    stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
