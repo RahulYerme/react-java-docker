@@ -48,7 +48,9 @@ pipeline {
     stage('Local artifact archive') {
       steps {
         script{
-        archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
+	sh 'mkdir javaapp'
+	sh 'echo "artifact file" > javapp/target/*.jar'
+        archiveArtifacts artifacts: 'target/*.jar','target/*.war', followSymlinks: false
       }
     }
     }  
