@@ -12,6 +12,7 @@
 	<artifactId>users</artifactId>
 	<version>1.0.2-SNAPSHOT</version>
 	<name>users</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
