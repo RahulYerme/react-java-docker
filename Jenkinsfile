@@ -10,10 +10,10 @@ pipeline {
 		maven 'Apache Maven 3.6.0'
           }
    agent any
-	triggers {
+	/*triggers {
 	
 pollSCM('H/2 * * * *')
-}
+}*/
 	
    stages{
      stage("Version"){
@@ -58,7 +58,7 @@ pollSCM('H/2 * * * *')
       }
     }
     }  
-	/* stage("Nexus Repository Upload" ){
+    stage("Nexus Repository Upload" ){
       steps{
         script{
 	input message: 'Enter Username And Password To Continue.', 
@@ -76,8 +76,8 @@ pollSCM('H/2 * * * *')
                                             version: '1.0.2-SNAPSHOT'
         }
       }
-    }   */
-  /* stage('build docker image') {
+    }  
+    stage('build docker image') {
       steps {
         script {
 		  
@@ -96,8 +96,8 @@ pollSCM('H/2 * * * *')
 		  }
         
       }
-    }*/
-  /* stage('build && SonarQube analysis') {
+    }
+    stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
                     
@@ -106,7 +106,7 @@ pollSCM('H/2 * * * *')
                     }
                 }
             }
-    }   */
+    }   
      stage('Deploy To Tomcat'){
         steps{
 		
