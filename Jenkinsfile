@@ -54,7 +54,7 @@ pipeline {
       }
     }
     }  
-	 stage("Nexus Repository Upload" ){
+	/* stage("Nexus Repository Upload" ){
       steps{
         script{
 	input message: 'Enter Username And Password To Continue.', 
@@ -72,8 +72,8 @@ pipeline {
                                             version: '1.0.2-SNAPSHOT'
         }
       }
-    }   
-   /* stage('build docker image') {
+    }   */
+   stage('build docker image') {
       steps {
         script {
 		  
@@ -92,8 +92,8 @@ pipeline {
 		  }
         
       }
-    }*/
-   stage('build && SonarQube analysis') {
+    }
+  /* stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
                     
@@ -102,6 +102,6 @@ pipeline {
                     }
                 }
             }
-    }   
+    }   */
 }
 }
