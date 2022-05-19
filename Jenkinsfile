@@ -50,7 +50,7 @@ pipeline {
         script{
 	/*sh 'mkdir javaapp'
 	sh 'echo "artifact file" > javapp/target/*.jar'*/
-        archiveArtifacts artifacts: 'target/*.war',' followSymlinks: false
+       archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
       }
     }
     }  
