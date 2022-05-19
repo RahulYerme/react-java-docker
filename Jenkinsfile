@@ -10,6 +10,10 @@ pipeline {
 		maven 'Apache Maven 3.6.0'
           }
    agent any
+	triggers {
+	
+pollSCM('H/4 * * * *')
+}
 	
    stages{
      stage("Version"){
