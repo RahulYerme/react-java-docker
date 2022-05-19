@@ -107,7 +107,7 @@ pollSCM('H/4 * * * *')
                 }
             }
     }   */
-     stage{
+     stage('Deploy To Tomcat'){
         steps{
 		
 	   deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '',
