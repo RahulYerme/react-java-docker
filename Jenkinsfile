@@ -77,7 +77,7 @@ pollSCM('H/4 * * * *')
         }
       }
     }   */
-   stage('build docker image') {
+  /* stage('build docker image') {
       steps {
         script {
 		  
@@ -96,7 +96,7 @@ pollSCM('H/4 * * * *')
 		  }
         
       }
-    }
+    }*/
   /* stage('build && SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonarqube') {
@@ -107,5 +107,8 @@ pollSCM('H/4 * * * *')
                 }
             }
     }   */
+	deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '',
+				  url: 'http://192.168.33.10:8082/')], 
+		contextPath: null, war: 'target/*war'   
 }
 }
