@@ -111,8 +111,9 @@ pollSCM('H/4 * * * *')
         steps{
 		
 	   deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '',
-				  url: 'http://192.168.33.10:8082/')], 
-		             contextPath: null, war: 'target/*war' 
+			   url: 'http://192.168.33.10:8082/')], 
+		             contextPath: 'reactapp', 
+		           onFailure: false, war: 'target/*.war' 
 	  }
 	   }
 }
