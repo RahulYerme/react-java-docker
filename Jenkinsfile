@@ -107,8 +107,13 @@ pollSCM('H/4 * * * *')
                 }
             }
     }   */
-	deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '',
+     stage{
+        steps{
+		
+	   deploy adapters: [tomcat9(credentialsId: 'tomcat', path: '',
 				  url: 'http://192.168.33.10:8082/')], 
-		contextPath: null, war: 'target/*war'   
+		             contextPath: null, war: 'target/*war' 
+	  }
+	   }
 }
 }
